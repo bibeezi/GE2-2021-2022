@@ -636,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1491248566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,18 +713,18 @@ MonoBehaviour:
   speed: 0
   acceleration: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
-  maxSpeed: 10
+  maxSpeed: 5
   maxForce: 10
   mass: 1
   seekEnabled: 0
   seekTargetTransform: {fileID: 0}
   seekTarget: {x: 0, y: 0, z: 0}
-  arriveEnabled: 0
-  arriveTargetTransform: {fileID: 0}
+  arriveEnabled: 1
+  arriveTargetTransform: {fileID: 253155654}
   arriveTarget: {x: 0, y: 0, z: 0}
-  slowingDistance: 80
-  path: {fileID: 1491248566}
-  pathFollowingEnabled: 1
+  slowingDistance: 10
+  path: {fileID: 0}
+  pathFollowingEnabled: 0
   waypointDistance: 3
   banking: 0.1
   damping: 0.1

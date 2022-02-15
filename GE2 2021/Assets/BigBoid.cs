@@ -21,7 +21,7 @@ public class BigBoid : MonoBehaviour
     public bool arriveEnabled = false;
     public Transform arriveTargetTransform;
     public Vector3 arriveTarget;
-    public float slowingDistance = 80;
+    public float slowingDistance = 10;
 
     public Path path;
     public bool pathFollowingEnabled = false;
@@ -117,7 +117,15 @@ public class BigBoid : MonoBehaviour
     public Vector3 Arrive(Vector3 target)
     {
        // Put your code here!
-       return Vector3.zero;
+    
+        Vector3 toTarget = target - transform.position;
+        float dist = toTarget.magnitude;
+        float ramped = (dist / slowingDistance) * maxSpeed;
+        float clamped = Mathf.Min(ramped, maxSpeed);
+
+        Vector3 desired = (toTarget / dist) * clamped;
+
+        return desired - velocity;
     }
 
     public Vector3 CalculateForce()
