@@ -43,7 +43,16 @@ public class BigBoid : MonoBehaviour
     public Vector3 Pursue(BigBoid pursueTarget)
     {
         // Put your code here!
-        return Vector3.zero;
+
+        pursueTargetPos = pursueTarget.transform.position;
+
+        float dist = (pursueTargetPos - transform.position).magnitude;
+
+        float lookAhead = (dist / maxSpeed);
+
+        Vector3 target = pursueTargetPos + (lookAhead * pursueTarget.velocity);
+
+        return Seek(target);
     }
 
 
