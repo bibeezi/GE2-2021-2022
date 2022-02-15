@@ -713,7 +713,7 @@ MonoBehaviour:
   speed: 0
   acceleration: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
-  maxSpeed: 10
+  maxSpeed: 5
   maxForce: 10
   mass: 1
   seekEnabled: 0
@@ -722,14 +722,14 @@ MonoBehaviour:
   arriveEnabled: 0
   arriveTargetTransform: {fileID: 0}
   arriveTarget: {x: 0, y: 0, z: 0}
-  slowingDistance: 80
-  path: {fileID: 1491248566}
+  slowingDistance: 10
+  path: {fileID: 0}
   pathFollowingEnabled: 0
   waypointDistance: 3
   banking: 0.1
   damping: 0.1
   playerSteeringEnabled: 1
-  steeringForce: 100
+  steeringForce: 10
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
