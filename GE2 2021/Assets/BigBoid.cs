@@ -191,6 +191,8 @@ public class BigBoid : MonoBehaviour
         {
             transform.forward = velocity;
 
+            Vector3 tempUp = Vector3.Lerp(transform.up, Vector3.up + (acceleration * banking), Time.deltaTime * 3.0f);
+            transform.LookAt(transform.position + velocity, tempUp);
             //velocity *= 0.9f;
 
             // Remove 10% of the velocity every second
