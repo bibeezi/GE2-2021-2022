@@ -716,7 +716,7 @@ MonoBehaviour:
   maxSpeed: 5
   maxForce: 10
   mass: 1
-  seekEnabled: 0
+  seekEnabled: 1
   seekTargetTransform: {fileID: 0}
   seekTarget: {x: 0, y: 0, z: 0}
   arriveEnabled: 0
@@ -730,9 +730,10 @@ MonoBehaviour:
   damping: 0.1
   playerSteeringEnabled: 0
   steeringForce: 100
-  pursueEnabled: 1
+  pursueEnabled: 0
   pursueTarget: {fileID: 1910690088}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  offsetPursuitEnabled: 1
 --- !u!65 &1661289993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -898,6 +899,7 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  offsetPursuitEnabled: 0
 --- !u!65 &1910690089
 BoxCollider:
   m_ObjectHideFlags: 0

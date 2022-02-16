@@ -40,6 +40,8 @@ public class BigBoid : MonoBehaviour
 
     public Vector3 pursueTargetPos;
 
+    public bool offsetPursuitEnabled = false;
+
     public Vector3 Pursue(BigBoid pursueTarget)
     {
         // Put your code here!
@@ -47,12 +49,28 @@ public class BigBoid : MonoBehaviour
         pursueTargetPos = pursueTarget.transform.position;
 
         float dist = (pursueTargetPos - transform.position).magnitude;
-
         float lookAhead = (dist / maxSpeed);
 
         Vector3 target = pursueTargetPos + (lookAhead * pursueTarget.velocity);
 
         return Seek(target);
+
+    }
+
+    public Vector3 OffsetPursuit(BigBoid pursueTarget)
+    {
+        // Put your code here!
+
+        pursueTargetPos = pursueTarget.transform.position;
+
+        Vector3 target = pursueTargetPos + (new Vector3(10, 0, 10));
+
+        float dist = (target - transform.position).magnitude;
+        float lookAhead = (dist / maxSpeed);
+
+        target = target + (lookAhead * pursueTarget.velocity);
+
+        return Arrive(target);
     }
 
 
@@ -73,7 +91,7 @@ public class BigBoid : MonoBehaviour
             Gizmos.DrawWireSphere(arriveTargetTransform.position, slowingDistance);
         }
 
-        if (pursueEnabled)
+        if (pursueEnabled || offsetPursuitEnabled)
         {
             Gizmos.color = Color.cyan;
             Gizmos.DrawLine(transform.position, pursueTargetPos);
@@ -177,6 +195,11 @@ public class BigBoid : MonoBehaviour
         if (pursueEnabled)
         {
             f += Pursue(pursueTarget);
+        }
+
+        if (offsetPursuitEnabled)
+        {
+            f += OffsetPursuit(pursueTarget);
         }
 
         return f;
