@@ -48,7 +48,9 @@ public class BigBoid : MonoBehaviour
 
         pursueTargetPos = pursueTarget.transform.position;
 
-        float dist = (pursueTargetPos - transform.position).magnitude;
+        Vector3 toTarget = pursueTarget - transform.position;
+
+        float dist = toTarget.magnitude;
         float lookAhead = (dist / maxSpeed);
 
         Vector3 target = pursueTargetPos + (lookAhead * pursueTarget.velocity);
@@ -64,8 +66,9 @@ public class BigBoid : MonoBehaviour
         pursueTargetPos = pursueTarget.transform.position;
 
         Vector3 target = pursueTargetPos + (new Vector3(10, 0, 10));
+        Vector3 toTarget = target - transform.position;
 
-        float dist = (target - transform.position).magnitude;
+        float dist = toTarget.magnitude;
         float lookAhead = (dist / maxSpeed);
 
         target = target + (lookAhead * pursueTarget.velocity);
