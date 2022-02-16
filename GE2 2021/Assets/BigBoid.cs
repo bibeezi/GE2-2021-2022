@@ -55,8 +55,12 @@ public class BigBoid : MonoBehaviour
 
         Vector3 target = pursueTargetPos + (lookAhead * pursueTarget.velocity);
 
-        return Seek(target);
+        // float dist = Vector3.Distance(pursueTarget.transform.position, transform.position);
+        // float time = dist / maxSpeed;
+        // pursueTargetPos = pursueTarget.transform.position 
+        //                 + pursueTarget.velocity * time;
 
+        return Seek(target);
     }
 
     public Vector3 OffsetPursuit(BigBoid pursueTarget)
@@ -74,6 +78,7 @@ public class BigBoid : MonoBehaviour
         target = target + (lookAhead * pursueTarget.velocity);
 
         return Arrive(target);
+
     }
 
 
@@ -99,7 +104,6 @@ public class BigBoid : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawLine(transform.position, pursueTargetPos);
         }
-
     }
 
     // Start is called before the first frame update
